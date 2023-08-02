@@ -11,6 +11,13 @@ spec:
         # http://35.222.90.200/
       http:
         paths:
+          - path: /api/users/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-srv
+                port:
+                  number: 3000
           - path: /?(.*)
             pathType: Prefix
             backend:

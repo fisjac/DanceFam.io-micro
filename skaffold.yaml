@@ -9,6 +9,14 @@ build:
   local:
     push: false
   artifacts:
+    - image: fisjac/dancefam-auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
     - image: fisjac/dancefam-client
       context: client
       docker:
